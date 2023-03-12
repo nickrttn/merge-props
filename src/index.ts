@@ -39,7 +39,7 @@ function pushProp(
  *  - duplicate functions (to be used for event handlers) get called in order from left to right
  * @param props Sets of props to merge together. Later props have precedence.
  */
-export default function mergeProps<T extends {}[]>(...props: T): {
+export = function mergeProps<T extends {}[]>(...props: T): {
   [K in keyof UnionToIntersection<T[number]>]:
       K extends 'className' ? string :
       K extends 'style' ? UnionToIntersection<T[number]>[K] :
